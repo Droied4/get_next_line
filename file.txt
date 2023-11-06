@@ -1,0 +1,3 @@
+Aqui hay un nulo
+no mentiras no hay
+menti si hay '\0'

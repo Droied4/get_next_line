@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: deordone <deordone@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/26 11:36:11 by deordone          #+#    #+#             */
-/*   Updated: 2023/11/09 17:35:59 by deordone         ###   ########.fr       */
+/*   Created: 2023/11/08 19:45:36 by deordone          #+#    #+#             */
+/*   Updated: 2023/11/08 19:45:45 by deordone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 t_list	*ft_lastnode(t_list **lst)
 {

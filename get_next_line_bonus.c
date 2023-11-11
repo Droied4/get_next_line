@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: deordone <deordone@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/26 12:42:24 by deordone          #+#    #+#             */
-/*   Updated: 2023/11/09 17:36:00 by deordone         ###   ########.fr       */
+/*   Created: 2023/11/08 19:43:43 by deordone          #+#    #+#             */
+/*   Updated: 2023/11/08 19:47:23 by deordone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 void	ft_lstclear(t_list **lst)
 {
@@ -99,7 +99,7 @@ void	ft_lstnew(t_list **lst, int fd)
 
 char	*get_next_line(int fd)
 {
-	static t_list	*lst = NULL;
+	static t_list	*lst[OPEN_MAX];
 	char			*line;
 	int				l_line;
 
@@ -107,18 +107,18 @@ char	*get_next_line(int fd)
 	l_line = 0;
 	if (read(fd, &line, 0) < 0)
 	{
-		ft_del(&lst);
+		ft_del(&lst[fd]);
 		return (NULL);
 	}
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || fd > OPEN_MAX - 1 || BUFFER_SIZE <= 0)
 		return (NULL);
-	ft_lstnew(&lst, fd);
-	if (lst == NULL)
+	ft_lstnew(&lst[fd], fd);
+	if (lst[fd] == NULL)
 		return (NULL);
-	line = ft_newline(&lst, line, l_line);
-	if (lst == NULL)
+	line = ft_newline(&lst[fd], line, l_line);
+	if (lst[fd] == NULL)
 		return (NULL);
-	ft_lstclear(&lst);
+	ft_lstclear(&lst[fd]);
 	return (line);
 }
 

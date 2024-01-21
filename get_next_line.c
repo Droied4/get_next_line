@@ -6,7 +6,7 @@
 /*   By: deordone <deordone@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 12:42:24 by deordone          #+#    #+#             */
-/*   Updated: 2023/11/09 17:36:00 by deordone         ###   ########.fr       */
+/*   Updated: 2024/01/21 11:25:45 by deordone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ char	*ft_newline(t_list **lst, char *line, int l_line)
 	return (line);
 }
 
-void	ft_lstnew(t_list **lst, int fd)
+void	ft_gnl_lstnew(t_list **lst, int fd)
 {
 	int		char_read;
 	char	*buf;
@@ -112,7 +112,7 @@ char	*get_next_line(int fd)
 	}
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	ft_lstnew(&lst, fd);
+	ft_gnl_lstnew(&lst, fd);
 	if (lst == NULL)
 		return (NULL);
 	line = ft_newline(&lst, line, l_line);
@@ -122,16 +122,6 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-// t_list** <- todas las funciones que quieras modificar o
-// controlar la lista tiene que tener este doble puntero
-// 1 -> crea la lista
-// 2 -> obtiene la line a de la lista
-// 3 -> limpia la lista y obtiene el cachito
-// 4 -> limpiar la lista
-// 5 -> meter un nodo
-// 6 -> fijarte si en los nodos hay un \n
-// 7 -> cuenta hasta el \n
-//
 /*
 int	main(void)
 {

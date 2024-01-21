@@ -6,15 +6,15 @@
 /*   By: deordone <deordone@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 11:36:11 by deordone          #+#    #+#             */
-/*   Updated: 2023/11/09 17:35:59 by deordone         ###   ########.fr       */
+/*   Updated: 2024/01/21 14:15:57 by deordone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-t_list	*ft_lastnode(t_list **lst)
+t_gnl_list	*ft_lastnode(t_gnl_list **lst)
 {
-	t_list	*temp;
+	t_gnl_list	*temp;
 
 	temp = *lst;
 	if (temp == NULL)
@@ -24,7 +24,7 @@ t_list	*ft_lastnode(t_list **lst)
 	return (temp);
 }
 
-int	found_newline(t_list *lst)
+int	found_newline(t_gnl_list *lst)
 {
 	int	i;
 
@@ -44,7 +44,7 @@ int	found_newline(t_list *lst)
 	return (0);
 }
 
-int	ft_contsize(t_list *temp)
+int	ft_contsize(t_gnl_list *temp)
 {
 	int	i;
 	int	k;
@@ -66,7 +66,7 @@ int	ft_contsize(t_list *temp)
 	return (k);
 }
 
-int	ft_cpylst(t_list *temp, char *line, int displacer)
+int	ft_cpylst(t_gnl_list *temp, char *line, int displacer)
 {
 	int	i;
 
@@ -85,9 +85,9 @@ int	ft_cpylst(t_list *temp, char *line, int displacer)
 	return (displacer);
 }
 
-void	ft_del(t_list **lst)
+void	ft_del(t_gnl_list **lst)
 {
-	t_list	*temp;
+	t_gnl_list	*temp;
 
 	if (!lst)
 		return ;

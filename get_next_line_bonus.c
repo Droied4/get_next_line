@@ -6,15 +6,15 @@
 /*   By: deordone <deordone@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 19:43:43 by deordone          #+#    #+#             */
-/*   Updated: 2023/11/08 19:47:23 by deordone         ###   ########.fr       */
+/*   Updated: 2024/01/21 14:20:00 by deordone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-void	ft_lstclear(t_list **lst)
+void	ft_lstclear(t_gnl_list **lst)
 {
-	t_list	*lastnod;
+	t_gnl_list	*lastnod;
 	int		i;
 	int		k;
 	char	*buf;
@@ -34,14 +34,14 @@ void	ft_lstclear(t_list **lst)
 	ft_attach(lst, buf);
 }
 
-void	ft_attach(t_list **lst, char *buf)
+void	ft_attach(t_gnl_list **lst, char *buf)
 {
-	t_list	*new_node;
-	t_list	*lastnod;
+	t_gnl_list	*new_node;
+	t_gnl_list	*lastnod;
 
 	if (!buf[0])
 		return (free(buf));
-	new_node = malloc(sizeof(t_list));
+	new_node = malloc(sizeof(t_gnl_list));
 	if (!new_node)
 	{
 		free(buf);
@@ -56,9 +56,9 @@ void	ft_attach(t_list **lst, char *buf)
 	new_node->next = NULL;
 }
 
-char	*ft_newline(t_list **lst, char *line, int l_line)
+char	*ft_newline(t_gnl_list **lst, char *line, int l_line)
 {
-	t_list	*temp;
+	t_gnl_list	*temp;
 	int		displacer;
 
 	temp = *lst;
@@ -75,7 +75,7 @@ char	*ft_newline(t_list **lst, char *line, int l_line)
 	return (line);
 }
 
-void	ft_lstnew(t_list **lst, int fd)
+void	ft_lstnew(t_gnl_list **lst, int fd)
 {
 	int		char_read;
 	char	*buf;
@@ -99,7 +99,7 @@ void	ft_lstnew(t_list **lst, int fd)
 
 char	*get_next_line(int fd)
 {
-	static t_list	*lst[OPEN_MAX];
+	static t_gnl_list	*lst[OPEN_MAX];
 	char			*line;
 	int				l_line;
 
@@ -122,7 +122,7 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-// t_list** <- todas las funciones que quieras modificar o
+// t_gnl_list** <- todas las funciones que quieras modificar o
 // controlar la lista tiene que tener este doble puntero
 // 1 -> crea la lista
 // 2 -> obtiene la line a de la lista

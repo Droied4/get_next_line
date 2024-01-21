@@ -6,7 +6,7 @@
 /*   By: deordone <deordone@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 12:42:24 by deordone          #+#    #+#             */
-/*   Updated: 2024/01/21 14:19:16 by deordone         ###   ########.fr       */
+/*   Updated: 2024/01/21 14:24:45 by deordone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	ft_lstclear(t_gnl_list **lst)
 {
 	t_gnl_list	*lastnod;
-	int		i;
-	int		k;
-	char	*buf;
+	int			i;
+	int			k;
+	char		*buf;
 
 	buf = malloc(BUFFER_SIZE + 1);
 	if (!buf)
@@ -59,7 +59,7 @@ void	ft_attach(t_gnl_list **lst, char *buf)
 char	*ft_newline(t_gnl_list **lst, char *line, int l_line)
 {
 	t_gnl_list	*temp;
-	int		displacer;
+	int			displacer;
 
 	temp = *lst;
 	displacer = 0;
@@ -100,8 +100,8 @@ void	ft_gnl_lstnew(t_gnl_list **lst, int fd)
 char	*get_next_line(int fd)
 {
 	static t_gnl_list	*lst = NULL;
-	char			*line;
-	int				l_line;
+	char				*line;
+	int					l_line;
 
 	line = NULL;
 	l_line = 0;

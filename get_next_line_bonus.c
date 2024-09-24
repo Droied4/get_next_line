@@ -6,7 +6,7 @@
 /*   By: deordone <deordone@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 19:43:43 by deordone          #+#    #+#             */
-/*   Updated: 2024/01/21 14:24:54 by deordone         ###   ########.fr       */
+/*   Updated: 2024/09/24 19:32:04 by droied           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void	ft_lstnew(t_gnl_list **lst, int fd)
 
 char	*get_next_line(int fd)
 {
-	static t_gnl_list	*lst[OPEN_MAX];
+	static t_gnl_list	*lst[FOPEN_MAX];
 	char				*line;
 	int					l_line;
 
@@ -110,7 +110,7 @@ char	*get_next_line(int fd)
 		ft_del(&lst[fd]);
 		return (NULL);
 	}
-	if (fd < 0 || fd > OPEN_MAX - 1 || BUFFER_SIZE <= 0)
+	if (fd < 0 || fd > FOPEN_MAX - 1 || BUFFER_SIZE <= 0)
 		return (NULL);
 	ft_lstnew(&lst[fd], fd);
 	if (lst[fd] == NULL)
